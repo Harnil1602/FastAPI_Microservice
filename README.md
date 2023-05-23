@@ -14,7 +14,7 @@ The FastAPI Cricket Score App is a web application that provides users with stat
   
 **Features:**
 
-Shows static cricket scores=
+Shows static cricket scores
 Automatic scaling based on the load
 Containerized using Docker
 Deployed on Kubernetes with HPA enabled
