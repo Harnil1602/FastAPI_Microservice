@@ -1,10 +1,17 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+FROM arm64v8/python
 
-COPY ./main.py /app/main.py
-COPY ./requirements.txt /app/requirements.txt
+# Copy your application code
+COPY . /app
 
+# Set the working directory
 WORKDIR /app
 
+# Install dependencies
 RUN pip install -r requirements.txt
 
+# Expose the required port
+EXPOSE 8000
+
+# Set the command to run your FastAPI application
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+

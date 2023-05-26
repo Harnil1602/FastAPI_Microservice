@@ -15,12 +15,12 @@ class Score(BaseModel):
     score: int
 
 
-@app.get("/scores")
+@app.get("/")
 def get_scores():
     return scores
 
 
-@app.post("/scores")
+@app.post("/")
 def add_score(score: Score):
     new_score = score.dict()
     scores.append(new_score)
@@ -29,4 +29,4 @@ def add_score(score: Score):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
