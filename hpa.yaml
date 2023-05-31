@@ -1,18 +1,14 @@
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: my-fastapi-app-hpa
+  name: my-app-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: my-fastapi-app-deployment
+    name: my-app-deployment
   minReplicas: 1
-  maxReplicas: 5
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+
