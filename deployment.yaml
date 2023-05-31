@@ -1,19 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-fastapi-app-deployment
+  name: my-app-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-fastapi-app
+      app: my-app
   template:
     metadata:
       labels:
-        app: my-fastapi-app
+        app: my-app
     spec:
       containers:
-        - name: my-fastapi-app
-          image: harnilshah/my-fastapi-app:latest
+        - name: my-app-container
+          image: harnilshah/src:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 80
+
